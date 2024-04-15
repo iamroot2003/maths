@@ -1,0 +1,199 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5987,        191]
+NotebookOptionsPosition[      4971,        165]
+NotebookOutlinePosition[      5375,        181]
+CellTagsIndexPosition[      5332,        178]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"%", " ", 
+   RowBox[{"Aim", ":", " ", 
+    RowBox[{
+    "To", " ", "approximate", " ", "the", " ", "value", " ", "of", " ", 
+     "integrals", " ", 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "1"], 
+      RowBox[{"x", 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]}]}]}], "  ", ",", 
+  RowBox[{
+   SubsuperscriptBox["\[Integral]", "0", "1"], 
+   RowBox[{
+    RowBox[{"e", "^", 
+     RowBox[{"-", "1"}]}], 
+    RowBox[{"\[DifferentialD]", "x"}], " ", "and", " ", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"x", "^", "2"}]}], ")"}]}], 
+      RowBox[{"\[DifferentialD]", "x"}], "  ", "using", " ", "Simpson", " ", 
+      "Rule", "%"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9216246885240536`*^9, 3.9216247811960263`*^9}, {
+  3.92162482091467*^9, 
+  3.9216249349548316`*^9}},ExpressionUUID->"a8bef461-8521-4c6a-a1ce-\
+710cc9e430c5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"simpsonRule", "[", 
+   RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], " ", ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{
+     RowBox[{"k", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"b", "-", "a"}], ")"}], "/", "6"}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"f", "[", "a", "]"}], "+", 
+         RowBox[{"4", 
+          RowBox[{"f", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"a", "+", "b"}], ")"}], "/", "2"}], "]"}]}], "+", 
+         RowBox[{"f", "[", "b", "]"}]}], ")"}]}]}], ";", 
+     "\[IndentingNewLine]", "     ", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<integral value is: \>\"", ",", "k"}], "]"}], ";"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f", "[", "x_", "]"}], ":=", "x"}], "\[IndentingNewLine]", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "1", ",", "f"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9216241278765798`*^9, 3.9216242613238153`*^9}, {
+  3.9216243236663413`*^9, 
+  3.9216244739332933`*^9}},ExpressionUUID->"d852ae33-e025-4453-8463-\
+ea94a1e9aa8d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"integral value is: \"\>", "\[InvisibleSpace]", 
+   FractionBox["1", "2"]}],
+  SequenceForm["integral value is: ", 
+   Rational[1, 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9216244747300525`*^9},ExpressionUUID->"3fb14975-9450-4239-820e-\
+08b4aceb7cd1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"E", "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "x"}], ")"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "1", ",", "f"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.921624482730611*^9, 3.9216245294653006`*^9}, {
+  3.9216245840445757`*^9, 
+  3.921624604164774*^9}},ExpressionUUID->"07a0eea4-1e63-4296-8108-\
+ff21f8a19e5b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"integral value is: \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox["1", "6"], " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      FractionBox["1", "\[ExponentialE]"], "+", 
+      FractionBox["4", 
+       SqrtBox["\[ExponentialE]"]]}], ")"}]}]}],
+  SequenceForm[
+  "integral value is: ", Rational[1, 6] (1 + E^(-1) + 4 E^Rational[-1, 2])],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9216246158520937`*^9},ExpressionUUID->"d9a6de2e-da56-4f74-99e3-\
+82d0a7c9d5d8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"x", "^", "2"}]}], ")"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "1", ",", "f"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.921624620414665*^9, 
+  3.9216246663679266`*^9}},ExpressionUUID->"8bee291c-6c4c-41ba-af90-\
+e417ee2617db"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"integral value is: \"\>", "\[InvisibleSpace]", 
+   FractionBox["47", "60"]}],
+  SequenceForm["integral value is: ", 
+   Rational[47, 60]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9216246757584133`*^9},ExpressionUUID->"6a30d7f1-7d45-4ce7-a799-\
+2d491f8e5730"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 604.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"778c3615-776f-4478-bd62-2642522f4eb1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1004, 29, 44, "Input",ExpressionUUID->"a8bef461-8521-4c6a-a1ce-710cc9e430c5"],
+Cell[CellGroupData[{
+Cell[1587, 53, 1198, 34, 86, "Input",ExpressionUUID->"d852ae33-e025-4453-8463-ea94a1e9aa8d"],
+Cell[2788, 89, 317, 9, 38, "Print",ExpressionUUID->"3fb14975-9450-4239-820e-08b4aceb7cd1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3142, 103, 468, 13, 67, "Input",ExpressionUUID->"07a0eea4-1e63-4296-8108-ff21f8a19e5b"],
+Cell[3613, 118, 532, 15, 41, "Print",ExpressionUUID->"d9a6de2e-da56-4f74-99e3-82d0a7c9d5d8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4182, 138, 449, 13, 67, "Input",ExpressionUUID->"8bee291c-6c4c-41ba-af90-e417ee2617db"],
+Cell[4634, 153, 321, 9, 38, "Print",ExpressionUUID->"6a30d7f1-7d45-4ce7-a799-2d491f8e5730"]
+}, Open  ]]
+}
+]
+*)
+
